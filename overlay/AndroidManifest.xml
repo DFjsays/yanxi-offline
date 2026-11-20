@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.muta.yanxi" platformBuildVersionCode="25" platformBuildVersionName="7.1.1">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <permission android:name="com.muta.yanxi.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.muta.yanxi.permission.C2D_MESSAGE"/>
+    <permission android:name="com.muta.yanxi.permission.MIPUSH_RECEIVE" android:protectionLevel="signatureOrSystem"/>
+    <uses-permission android:name="com.muta.yanxi.permission.MIPUSH_RECEIVE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <meta-data android:name="android.support.VERSION" android:value="25.3.0"/>
+    <application android:allowBackup="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:largeHeap="true" android:name="com.muta.yanxi.MutaApplication" android:supportsRtl="true" android:theme="@style/AppTheme" android:usesCleartextTraffic="true">
+        <activity android:exported="false" android:name="com.muta.yanxi.offline.ScriptImportActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:windowSoftInputMode="adjustResize"/>
+        <receiver android:exported="true" android:name="com.hyphenate.chat.EMGCMBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="com.hyphenate.chatuidemo"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="com.hyphenate.chat.EMGCMListenerService"/>
+        <service android:enabled="true" android:exported="true" android:name="com.xiaomi.mipush.sdk.PushMessageHandler"/>
+        <service android:enabled="true" android:name="com.xiaomi.mipush.sdk.MessageHandleService"/>
+        <receiver android:exported="true" android:name="com.hyphenate.chat.EMMipushReceiver">
+            <intent-filter>
+                <action android:name="com.xiaomi.mipush.RECEIVE_MESSAGE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.xiaomi.mipush.MESSAGE_ARRIVED"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.xiaomi.mipush.ERROR"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.hyphenate.chat.EMHuaweiPushReceiver">
+            <intent-filter>
+                <action android:name="com.huawei.android.push.intent.REGISTRATION"/>
+                <action android:name="com.huawei.android.push.intent.RECEIVE"/>
+            </intent-filter>
+            <meta-data android:name="CS_cloud_ablitity" android:value="successRateAnalytics"/>
+        </receiver>
+        <receiver android:exported="true" android:name="com.huawei.android.pushagent.PushEventReceiver" android:process=":pushservice">
+            <intent-filter>
+                <action android:name="com.huawei.android.push.intent.REFRESH_PUSH_CHANNEL"/>
+                <action android:name="com.huawei.intent.action.PUSH"/>
+                <action android:name="com.huawei.intent.action.PUSH_ON"/>
+                <action android:name="com.huawei.android.push.PLUGIN"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.huawei.android.pushagent.PushService" android:process=":pushservice"/>
+        <meta-data android:name="EASEMOB_APPKEY" android:value="1124161026178157#mutayanxi"/>
+        <service android:exported="true" android:name="com.hyphenate.chat.EMChatService"/>
+        <service android:exported="true" android:name="com.hyphenate.chat.EMJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:name="com.hyphenate.chat.EMMonitorReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="UMENG_APPKEY" android:value="589c2ae4310c9360c4001e3d"/>
+        <meta-data android:name="UMENG_CHANNEL" android:value="MUTA"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mob.tools.MobUIShell" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:windowSoftInputMode="adjustResize|stateHidden">
+            <intent-filter>
+                <data android:scheme="tencent1106029273"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <data android:scheme="line.1477692153"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="PUSH_APPID" android:value="Nxj3kjaCfH7IlyvW1FKM59"/>
+        <meta-data android:name="PUSH_APPKEY" android:value="fB7zIXeTql7lhuXQKQdBM8"/>
+        <meta-data android:name="PUSH_APPSECRET" android:value="8Wk5Yz9ksj84dUIgfFw349"/>
+        <service android:name="com.muta.yanxi.service.GetuiIntentService"/>
+        <service android:exported="true" android:label="PushService" android:name="com.muta.yanxi.service.GetuiPushService" android:process=":pushservice"/>
+        <activity android:alwaysRetainTaskState="true" android:configChanges="keyboardHidden|orientation|screenSize" android:exported="false" android:launchMode="singleTask" android:name="com.tencent.smtt.sdk.VideoActivity">
+            <intent-filter>
+                <action android:name="com.tencent.smtt.tbs.video.PLAY"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <meta-data android:name="QBSDKAppKey" android:value="oqOvCovyNeN9mnkzT6HRj9EI"/>
+        <service android:name="com.muta.yanxi.presenter.download.service.DownloadService"/>
+        <service android:name="com.muta.yanxi.presenter.download.service.JsonDownloadService"/>
+        <service android:name="com.muta.yanxi.service.HeartbeatService"/>
+        <service android:name="com.muta.yanxi.service.StartTimeService"/>
+        <service android:name="com.muta.yanxi.service.StopTimeService"/>
+        <receiver android:name="com.muta.yanxi.service.broadcast.HeartbeatBroadcastReveicer"/>
+        <receiver android:name="com.muta.yanxi.service.broadcast.StartBroadcastReveicer"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="true" android:name="com.muta.yanxi.wxapi.WXEntryActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="com.muta.yanxi.view.activity.SplashActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Translucent">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <data android:scheme="growing.ae0b56ac34c7188e"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.muta.yanxi.view.activity.WelcomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Translucent.NoAnimation" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.muta.yanxi.view.activity.UpdateActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Translucent.NoAnimation" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:launchMode="singleTask" android:name="com.muta.yanxi.view.activity.MainActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Translucent.NoAnimation" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.muta.yanxi.view.activity.LoginActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Translucent" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="me.iwf.photopicker.PhotoPickerActivity" android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:name="me.iwf.photopicker.PhotoPagerActivity" android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:name="com.yalantis.ucrop.UCropActivity" android:screenOrientation="portrait" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name="com.muta.yanxi.view.activity.IMChatMainActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Translucent" android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:name="com.muta.yanxi.view.activity.MyHomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Translucent" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.muta.yanxi.view.activity.MySongActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Translucent" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.muta.yanxi.view.activity.SettingActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Translucent" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.muta.yanxi.view.activity.NoviceGuideActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Translucent" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.muta.yanxi.view.activity.ChatActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Translucent" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.muta.yanxi.view.activity.HomePageActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Translucent" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.muta.yanxi.view.activity.WebActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Translucent" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.muta.yanxi.view.activity.MemoriesActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Translucent" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.muta.yanxi.view.activity.PostTopicActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Translucent" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.muta.yanxi.view.activity.OpinionActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Translucent" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.muta.yanxi.view.activity.SearchForActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Translucent" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.muta.yanxi.view.activity.RoomUserListActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Translucent" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.muta.yanxi.view.activity.TopicHomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Translucent" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.muta.yanxi.view.activity.SeePactActivitry" android:screenOrientation="portrait" android:theme="@style/AppTheme.Translucent" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.muta.yanxi.view.activity.MemoriesDetailsActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Translucent" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.muta.yanxi.view.activity.MemoriesConfessionActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Translucent" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.muta.yanxi.view.activity.MemoriesBigImageActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Translucent" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.muta.yanxi.offline.OfflineProfileActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.DeviceDefault.Light.NoActionBar"/>
+        <activity android:name="com.muta.yanxi.view.activity.ShowBigImageActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.Translucent" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name="com.muta.yanxi.view.activity.EditContentActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.muta.yanxi.view.activity.HomePagesActivy" android:screenOrientation="portrait"/>
+        <activity android:name="com.muta.yanxi.view.activity.CircleFriendsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.muta.yanxi.view.activity.CircleFriendsDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.muta.yanxi.emchat.ui.PickAtUserActivity" android:screenOrientation="portrait" android:theme="@style/horizontal_slide"/>
+        <activity android:name="com.muta.yanxi.emchat.ui.ForwardMessageActivity" android:screenOrientation="portrait" android:theme="@style/horizontal_slide" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.muta.yanxi.emchat.ui.ContextMenuActivity" android:screenOrientation="portrait" android:theme="@style/MyDialogStyle"/>
+        <activity android:name="com.muta.yanxi.emchat.ui.EaseShowNormalFileActivity" android:screenOrientation="portrait" android:theme="@style/horizontal_slide"/>
+        <activity android:name="com.muta.yanxi.emchat.ui.EaseShowVideoActivity" android:screenOrientation="portrait" android:theme="@style/horizontal_slide" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.muta.yanxi.emchat.ui.ImageGridActivity" android:screenOrientation="portrait" android:theme="@style/horizontal_slide" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.muta.yanxi.emchat.ui.RecorderVideoActivity" android:screenOrientation="portrait" android:theme="@style/horizontal_slide" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name="com.muta.yanxi.emchat.ui.OfflinePushNickActivity" android:screenOrientation="portrait" android:theme="@style/horizontal_slide" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <receiver android:name="com.muta.yanxi.service.StartServiceReceiver">
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.QUICKBOOT_POWERON"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.muta.yanxi.provider" android:exported="false" android:grantUriPermissions="true" android:name="android.support.v4.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/__picker_provider_paths"/>
+        </provider>
+    </application>
+</manifest>

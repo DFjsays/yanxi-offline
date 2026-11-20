@@ -1,0 +1,35 @@
+我可以接受，如果这就是你想要的结果——burden/b-1.mp3 · 剧情事件 · burden
+好久不见了呢，大概，我在你心里的位置，已经被别人替代了吧——burden/b-2.mp3 · 剧情事件 · burden
+开心的事和不开心的事都可以告诉我哦——sign_on/s-1.mp3 · 剧情事件 · sign_on
+你最近几乎每天都来呢——sign_on/s-10.mp3 · 剧情事件 · sign_on
+呐，能告诉我你每天都来这里的原因吗——sign_on/s-2.mp3 · 剧情事件 · sign_on
+不要再来找我啦，笨蛋——sign_on/s-3.mp3 · 剧情事件 · sign_on
+什么啊，是你啊，今天有什么事——sign_on/s-4.mp3 · 剧情事件 · sign_on
+讷讷，今天我们要做些什么呢——sign_on/s-5.mp3 · 剧情事件 · sign_on
+你看起来心情不错，发生什么好事了吗——sign_on/s-6.mp3 · 剧情事件 · sign_on
+今天，不准再对我做奇怪的事情了哦——sign_on/s-7.mp3 · 剧情事件 · sign_on
+今天，不会再对我做过分的事了吧——sign_on/s-9.mp3 · 剧情事件 · sign_on
+胸口仍在隐隐作痛，对不起——unburden/u-10-fail.mp3 · 剧情事件 · unburden
+那么以后，就请多多关照了哦——unburden/u-10-success.mp3 · 剧情事件 · unburden
+刚认识就对女生表白，你是变态吗——unburden/u-1-fail.mp3 · 剧情事件 · unburden
+这就是所谓的一见钟情？——unburden/u-1-success.mp3 · 剧情事件 · unburden
+不，不是啦，恋爱什么的，我也不太清楚——unburden/u-5-fail.mp3 · 剧情事件 · unburden
+脸上热乎乎的，这就是被爱着的感觉吗——unburden/u-5-success.mp3 · 剧情事件 · unburden
+对不起，我觉得，这是沉重的负担——unburden/u-6-fail.mp3 · 剧情事件 · unburden
+不要一直盯着看啦，我接受就是了——unburden/u-6-success.mp3 · 剧情事件 · unburden
+我似乎，忘了一件很重要的事——9/face-drag-01.mp3 · drag_leg/tap_leg
+想不到，你还挺有意思哒——7/7-01.mp3
+你一直摸我，我，哦，啊……——7/7-02.mp3
+
+关于语音触发的等级机制：
+1级：0档，游戏最开始的好感度
+2级：-1档，由0档下降得
+3级：-2档，由-1档下降得
+4级：-3档，由-2档下降得
+5级：5档，由4档上升得
+6级：4档，由3档上升得
+7级：应当与6级合并
+8级：6档，由5档上升得
+9级：2档，由1档上升得
+10级：3档，由2档上升得
+解包得到的备注完全是错误的！
